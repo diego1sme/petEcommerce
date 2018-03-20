@@ -1,7 +1,6 @@
 from django.shortcuts import render
 
 # Create your views here.
-# howdy/views.py
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
