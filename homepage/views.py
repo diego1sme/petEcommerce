@@ -19,7 +19,7 @@ class about_Us(TemplateView):
 
 class contact_Us(TemplateView):
     def get(self, request, **kwargs):
-            return render(request,'contact_us.html', context=None)
+            return render(request,'contact_Us.html', context=None)
 class render_Page(TemplateView):
     def get(self, request, **kwargs):
             return render(request,'render_Page.html', context=None)
