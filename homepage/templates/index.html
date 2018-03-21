@@ -2,29 +2,22 @@
 <!DOCTYPE html>
 <html>
     {%load static%}
-    <div id="top"></div>
     <head>
         <meta charset="utf-8">
         <title>petEcommerce</title>
     </head>
     <style>
-        top{
-            background-color:blue;
-           }
     </style>
-    <body>
-        <top>
-            <h1>
-                <p text-align: right;>PetCommerce</p>
-              <a text-align: left; href="login.html">Login<a>
-              <a text-align: left; href="aboutUs.html">About<a>
-              <a text-align: left; href="contactUs.html">Contact Us<a>
-            </h1>
-        </top>
+    <body style="background:#2e4f84">
         <div>
-              <img style="width: 100%;"
-              style="height: 100%;"
-              src="{% static "media/photo.jpg" %}">
+            <h1>
+                <a style="float: right; text-decoration:none; color:black; padding: 10px 25px;" href="about_Us.html">About Us<a>
+                    <a style="float: right; text-decoration:none; color: black; padding: 10px 15px;"  href="contact_Us.html">Contact Us <a>
+                    <a style="float: right; text-decoration:none; color: black; padding: 10px 15px;" href="login.html">Login <a>
+            </h1>
         </div>
+        <img style="width: 100%;"
+             style="height: 100%;"
+             src="{% static "media/photo.jpg" %}"
     </body>
 </html>
