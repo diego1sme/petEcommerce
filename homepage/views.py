@@ -20,3 +20,13 @@ class about_Us(TemplateView):
 class contact_Us(TemplateView):
     def get(self, request, **kwargs):
             return render(request,'contact_us.html', context=None)
+class render_Page(TemplateView):
+    def get(self, request, **kwargs):
+            return render(request,'render_Page.html', context=None)
+
+def post_list(request):
+    today = timezone.now().date()
+    queryset_list = Post.objects.active()
+    query = request.Get.get("q")
+    if query:
+        queryset_list = queryset_list.filter(title_icontains=query)
