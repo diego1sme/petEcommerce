@@ -13,6 +13,10 @@ class Login(TemplateView):
     def get(self, request, **kwargs):
             return render(request,'login.html', context=None)
 
+class Profile(TemplateView):
+    def get(self, request, **kwargs):
+            return render(request,'profile.html', context=None)
+
 class about_Us(TemplateView):
     def get(self, request, **kwargs):
             return render(request,'about_Us.html', context=None)
