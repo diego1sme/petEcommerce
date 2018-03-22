@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'login.html',include('homepage.urls')),
     url(r'contact_Us.html',include('homepage.urls')),
     url(r'about_Us.html',include('homepage.urls')),
+    url(r'profile.html',include('homepage.urls')),
     url(r'render_Page.html',include('homepage.urls')),
 ]
