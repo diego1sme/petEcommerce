@@ -3,6 +3,7 @@ from django.conf.urls import url, include
 from homepage import views
 
 urlpatterns = [
+    url(r'^$', views.HomePageView.as_view()),
     url(r'home.html$', views.HomePageView.as_view()),
     url(r'login.html',views.Login.as_view()),
     url(r'contact_Us.html',views.contact_Us.as_view()),
