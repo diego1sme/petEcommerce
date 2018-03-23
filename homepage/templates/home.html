@@ -6,6 +6,39 @@
     <head>
         <meta charset="utf-8">
         <title>petEcommerce</title>
+        <style>
+            /* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: static;
+  width: 100%;
+}
+
+/* Make the image responsive */
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+  position: absolute;
+  top: 20%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #639af2;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
+        </style>
 
     </head>
 
@@ -13,15 +46,17 @@
 
     <div style="width:100%">
         <h1>
-            <a style="float: left; text-decoration:none; color:white; padding: 10px 25px;" href="render_Page.html">Pets R' Us</a>
+            <a style="float: left; text-decoration:none; color:white; padding: 10px 25px;" href="home.html">Pets R' Us</a>
             <a style="float: right; text-decoration:none; color: white; padding: 5px 15px;" href="contact_Us.html">Contact Us </a>
             <a style="float: right; text-decoration:none; color: white; padding: 5px 15px;"   href="about_Us.html">About Us</a>
             <!--<a style="float: right; text-decoration:none; color: white; padding: 5px 15px;" href="login.html">Login </a>-->
 
         </h1>
     </div>
-    <img style="height:770px; width:100%" src="https://i.pinimg.com/originals/26/9e/98/269e9897fe5094a8d2bd1564575ba82f.jpg"/>
-
+        <div class="container">
+  <img style="height:770px; width:100%" src="https://i.pinimg.com/originals/26/9e/98/269e9897fe5094a8d2bd1564575ba82f.jpg"/>
+  <button onclick="window.location.href='render_Page.html'" style="height:50px;width:150px " class="btn">SHOP NOW</button>
+</div>
     </body>
 </html>
 
