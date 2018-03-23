@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'about_Us.html',include('homepage.urls')),
     url(r'profile.html',include('homepage.urls')),
     url(r'render_Page.html', include('homepage.urls', namespace='homepage')),
+    url(r'^cart/', include('cart.urls', namespace='cart')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
