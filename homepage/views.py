@@ -1,7 +1,6 @@
-from django.shortcuts import render
-
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Category, Product
 from django.views.generic import TemplateView
 
 # Create your views here.
@@ -28,9 +27,24 @@ class render_Page(TemplateView):
     def get(self, request, **kwargs):
             return render(request,'render_Page.html', context=None)
 
-def post_list(request):
-    today = timezone.now().date()
-    queryset_list = Post.objects.active()
-    query = request.Get.get("q")
-    if query:
-        queryset_list = queryset_list.filter(title_icontains=query)
+def product_list(request, category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+    return render(request,
+                  'list.html',
+                  {'category': category,
+                   'categories': categories,
+                   'products': products})
+
+def product_detail(request, id, slug):
+    product = get_object_or_404(Product,
+                                id=id,
+                                slug=slug,
+                                available=True)
+    return render(request,
+                  'detail.html',
+                  {'product': product})
