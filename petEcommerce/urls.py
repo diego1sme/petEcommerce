@@ -19,15 +19,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
     url(r'^', include('homepage.urls')),
     url(r'login.html',include('homepage.urls')),
     url(r'contact_Us.html',include('homepage.urls')),
     url(r'about_Us.html',include('homepage.urls')),
     url(r'profile.html',include('homepage.urls')),
-    url(r'render_Page.html', include('homepage.urls', namespace='homepage')),
-    url(r'^cart/', include('cart.urls', namespace='cart')),
-url(r'^orders/', include('orders.urls', namespace='orders')),
+    url(r'render_Page.html', include(('homepage.urls', 'homepage'), namespace='homepage')),
+    url(r'^cart/', include(('cart.urls', 'cart'), namespace='cart')),
+url(r'^orders/', include(('orders.urls', 'orders'), namespace='orders')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
