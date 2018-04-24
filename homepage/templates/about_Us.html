@@ -8,21 +8,79 @@
         <title>petEcommerce</title>
     </head>
     <style>
+body {
+    background-color:#ccd4e2;
+}
 
+.nav{
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:2;
+    width:100%;
+}
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffb711;
+    }
+
+.navbar li {
+    Display: inline;
+}
+
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: #111;
+}
+
+.imgabout{
+     position:fixed;
+    top: 50%;
+    left: 50%;
+    width:50em;
+    height:25em;
+    margin-top: -11em; /*set to a negative number 1/2 of your height*/
+    margin-left: -17em; /*set to a negative number 1/2 of your width*/
+    outline: 2px solid black;
+    padding:2em;
+}
+.imgabout img{
+    float: center;
+    height: 100%;
+    width: 50%;
+
+}
+
+.imgabout h2{
+    color:black;
+}
     </style>
-    <body style="background:#2e4f84">
+    <body>
 
-       <div style="height: 50px; width:100%">
-           <h1>
-                <a style="float: left; text-decoration:none; color:white; padding: 10px 25px;" href="home.html">Pets R' Us</a>
-                <a style="float: right; text-decoration:none; color:white; padding: 10px 25px;" href="contact_Us.html">Contact Us</a>
-                <a style="float: right; text-decoration:none; color:white; padding: 10px 15px;" href="about_Us.html">About Us</a>
-                <!--<a style="float: right; text-decoration:none; color: black; padding: 10px 15px;" href="login.html">Login </a>-->
-           </h1>
-       </div>
-       <div  >
-           <img style=" float: center; height: 100%; width: 50%; padding:0% 0% 0% 24%" src="http://www.gd.tt/wp-content/uploads/101-dalmatians-522aa6297eb95.jpg"/>
-           <h2 align="center"; style = "color:white ">We are "PETS R' US", a group of Computer Science students from UTSA, who love animals! We believe that the process of buying a pet should be a simple and straight forward one, and so we've created your one stop shop, to find your companion for life!</h2>
+        <!-- make Top nav bar-->
+      <div class="nav">
+      <ul class="navbar">
+          <li style="float:left"><a href="home.html">Pets R Us</a></li>
+          <li style="float:right"><a href="about_Us.html">About us</a></li>
+          <li style="float:right"><a href="contact_Us.html">Contact us</a></li>
+          <li style="float:right"><a href="render_Page.html">Shop now</a></li>
+      </ul>
+      </div>
+
+       <div class="imgabout">
+           <img src="http://www.gd.tt/wp-content/uploads/101-dalmatians-522aa6297eb95.jpg"/>
+           <h2 align="center">We are "PETS R' US", a group of Computer Science students from UTSA, who love animals! We believe that the process of buying a pet should be a simple and straight forward one, and so we've created your one stop shop, to find your companion for life!</h2>
        </div>
 
 

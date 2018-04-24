@@ -1,39 +1,136 @@
 {% load static %}
 <!DOCTYPE html>
-<html xmlns:background="http://www.w3.org/1999/xhtml">
+<html xmlns:background="http://www.w3.org/1999/xhtml" xmlns:cart="http://www.w3.org/1999/xhtml"
+      xmlns:rotate="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8",name="viewport",content="width=device-width, initial-scale=1" />
   <title>{% block title %}My shop{% endblock %}</title>
-  <link href="{% static "css/base.css" %}" rel="stylesheet">
-</head>
-<body  style="background: #2e4f84" >
-  <div style="width:100%">
-        <h1>
-            <a style="float: left; text-decoration:none; color:white; padding: 10px 25px;" href="home.html">Pets R' Us</a>
-            <a style="float: right; text-decoration:none; color: white; padding: 5px 15px;" href="contact_Us.html">Contact Us </a>
-            <a style="float: right; text-decoration:none; color: white; padding: 5px 15px;"   href="about_Us.html">About Us</a>
-            <!--<a style="float: right; text-decoration:none; color: white; padding: 5px 15px;" href="login.html">Login </a>-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!--<link href="{% static "css/base.css" %}" rel="stylesheet">-->
+  <style>
+.nav{
+    position:absolute;
+    z-index:2;
+    width:100%;
+}
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffb711;
+    }
 
-        </h1>
-    </div>
-  <div id="subheader" style="padding: 30px 0px 0px 0px" >
-    <div class="cart" style="padding: 30px 0px 0px 0px">
-      {% with total_items=cart|length %}
-        {% if cart|length > 0 %}
-          Your cart:
-          <a href="{% url "cart:cart_detail" %}">
-            {{ total_items }} item{{ total_items|pluralize }},
-            ${{ cart.get_total_price }}
-          </a>
-        {% else %}
-          Your cart is empty.
-        {% endif %}
-      {% endwith %}
-  </div>
-  </div>
-  <div id="content">
-    {% block content %}
-    {% endblock %}
-  </div>
+.navbar li {
+    Display: inline;
+}
+
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: #111;
+}
+
+.sidebar{
+    position:fixed;
+    height:100%;
+    width:167px;
+    x-overflow:hidden;
+    z-index:1;
+    top:0;
+    left:0;
+    background-color: #a2a8b2;
+    padding-top:40px;
+
+
+}
+
+.categories{
+        list-style-type: none;
+
+
+}
+
+.categories li{
+    padding:20px;
+
+}
+.categories li a{
+    text-decoration: none;
+}
+
+.categories li a:hover{
+    color: #FFF;
+
+}
+
+.gridContainer{
+        position: fixed;
+        height:100%;
+        width:100%;
+        padding-top: 130px;
+        padding-left:250px;
+        background-color:#ccd4e2;
+        overflow-x:scroll;
+        overflow-y:scroll;
+}
+
+.column img{
+        height:300px;
+        width:300px;
+        margin-bottom:5px;
+}
+  </style>
+</head>
+<body style="margin:0">
+      <!-- make Top nav bar-->
+      <div class="nav">
+      <ul class="navbar">
+          <li style="float:left"><a href="home.html">Pets R Us</a></li>
+          <li style="float:right"><a href="about_Us.html">About us</a></li>
+          <li style="float:right"><a href="contact_Us.html">Contact us</a></li>
+          <li style="float:right"><a href="render_Page.html">Shop now</a></li>
+      </ul>
+      </div>
+
+        <!--make fixed side bar of categories-->
+
+        <div class="sidebar">
+            <ul class="categories">
+                {%block content%}
+                {%endblock%}
+            </ul>
+        </div>
+
+             <!-- Photo Grid -->
+         <div class="gridContainer">
+             <h1>FIND YOUR BEST FRIEND TODAY!</h1>
+         <div class="row">
+            <div class="column">
+                <img src="media/justZoey.jpg">
+                <img src="media/products/2018/03/22/green-snake.jpg" >
+                <img src="media/products/2018/03/22/965523a218b547a5b3881a02f80337f7.jpeg" >
+                <img src="media/products/2018/03/22/German_Shepherd_picture.jpg" >
+            </div>
+            <div class="column">
+                <img src="media/products/2018/03/22/turtle.jpg" >
+                <img src="media/products/2018/03/23/mao.jpg">
+                <img src="media/products/2018/03/23/dogelog.jpg" >
+                <img src="media/products/2018/03/23/Golden_Retriever_image.jpg" >
+            </div>
+         </div>
+         </div>
+
+
+
+
+
 </body>
 </html>
