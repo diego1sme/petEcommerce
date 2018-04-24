@@ -6,7 +6,11 @@
 {% endblock %}
 
 {% block content %}
+<style>
+    .product-detail{
 
+    }
+</style>
 <div class="product-detail" xmlns:cart="http://www.w3.org/1999/xhtml">
     <img style="height:300px;width:300px" src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
     <h1>{{ product.name }}</h1>

@@ -97,36 +97,29 @@
           <li style="float:right"><a href="about_Us.html">About us</a></li>
           <li style="float:right"><a href="contact_Us.html">Contact us</a></li>
           <li style="float:right"><a href="render_Page.html">Shop now</a></li>
+          <li style="float:right">{% with total_items=cart|length %}
+                    {% if cart|length > 0 %}
+                    <a href="{% url "cart:cart_detail" %}">
+                    {{ total_items }} item{{ total_items|pluralize }},
+                    ${{ cart.get_total_price }}
+                    </a>
+
+                    {% else %}
+          <li  style="float:right"><a>Your cart is empty</a></li>
+                    {% endif %}
+                    {% endwith %}
+          </li>
       </ul>
       </div>
 
-        <!--make fixed side bar of categories-->
+        <!--other views like cart, etc-->
 
-        <div class="sidebar">
-            <ul class="categories">
+        <div class="content">
+
                 {%block content%}
                 {%endblock%}
-            </ul>
-        </div>
 
-             <!-- Photo Grid -->
-         <div class="gridContainer">
-             <h1>FIND YOUR BEST FRIEND TODAY!</h1>
-         <div class="row">
-            <div class="column">
-                <img src="media/justZoey.jpg">
-                <img src="media/products/2018/03/22/green-snake.jpg" >
-                <img src="media/products/2018/03/22/965523a218b547a5b3881a02f80337f7.jpeg" >
-                <img src="media/products/2018/03/22/German_Shepherd_picture.jpg" >
-            </div>
-            <div class="column">
-                <img src="media/products/2018/03/22/turtle.jpg" >
-                <img src="media/products/2018/03/23/mao.jpg">
-                <img src="media/products/2018/03/23/dogelog.jpg" >
-                <img src="media/products/2018/03/23/Golden_Retriever_image.jpg" >
-            </div>
-         </div>
-         </div>
+        </div>
 
 
 
