@@ -6,16 +6,27 @@
 {% endblock %}
 
 {% block content %}
+<style>
+  .container{
+      position:absolute;
+      height:100%;
+      width:100%;
+      background-color:#ccd4e2;
+      padding-top:50px;
+  }
+
+</style>
+<div class="container">
   <h1>Your shopping cart</h1>
   <table class="cart">
     <thead>
       <tr>
-        <th>Image</th>
+        <th></th>
         <th>Product</th>
-        <th>Quantity</th>
+        <th></th>
         <th>Remove</th>
-        <th>Unit price</th>
         <th>Price</th>
+        <th>Total Price</th>
       </tr>
     </thead>
     <tbody>
@@ -56,3 +67,4 @@
     </a>
   </p>
 {% endblock %}
+</div>

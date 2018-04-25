@@ -7,19 +7,80 @@
 
 {% block content %}
 <style>
-    .product-detail{
+    .surround{
+        height:100%;
+        width:50%;
+
+        float: right;
+    }
+
+    .container{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #a2a8b2;
+    }
+    .productpic {
+        height:100%;
+        width:50%;
+        position:relative;
+        padding-top: 100px;
+        padding-left:50px;
+        padding-right:50px;
+        padding-bottom:50px;
+        float:left;
 
     }
+
+    .productpic img{
+            height: 50em;
+            width:40em;
+
+    }
+    .product-detail{
+        height:100%;
+        width:50%;
+        position:relative;
+        display:inline;
+
+        padding-top:100px;
+        float:right;
+
+    }
+
+    .product-detail h1{
+        text-align:center;
+    }
+
+    .product-detail h2{
+         text-align: center;
+         text-decoration: none;
+    }
+
+    .product-detail p{
+         margin-left: 80px;
+    }
 </style>
+
+<div class="container">
+<div class="productpic">
+    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+</div>
+
+
+<div class="surround">
 <div class="product-detail" xmlns:cart="http://www.w3.org/1999/xhtml">
-    <img style="height:300px;width:300px" src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+
     <h1>{{ product.name }}</h1>
-    <h2><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h2>
+    <h2>({{ product.category }})</h2>
     <p class="price">${{ product.price }}</p>
       {{ product.description|linebreaks }}
     <form action="{% url "cart:cart_add" product.id %}" method="post">
   {{ cart_product_form }}
   {% csrf_token %}
-  <input type="submit" value="Add to cart">
+  <input style="margin-left: 80px" type="submit" value="Add to cart">
   </div>
+</div>
 {% endblock %}
+
+</div>

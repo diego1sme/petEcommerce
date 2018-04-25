@@ -8,6 +8,13 @@
         <title>petEcommerce</title>
         <style>
 
+.poo{
+        position:absolute;
+        height:100%;
+        width:100%;
+        overflow-y: hidden;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -30,33 +37,49 @@ li a {
 
 li a:hover {
     background-color: #111;
+    }
 
 mySlides {display:none}
 
 .w3-left, .w3-right, .w3-badge {cursor:pointer}
 
-.w3-badge {height:13px;width:13px;padding:0}
-}
+.w3-badge {height:13px;
+            width:13px;
+            padding:0
+            }
+
 
         </style>
 
     </head>
-    <body style="margin:0">
+    <body style="margin:0; overflow-y: hidden">
             <!--create top navigation bar-->
             <ul>
                 <li style="float:left"><a href="home.html">Pets R Us</a> </li>
                 <li style="float:right"><a href="about_Us.html">About us</a> </li>
                 <li style="float:right"><a href="contact_Us.html">Contact us</a></li>
                 <li style="float:right"><a href="render_Page.html">Shop Now</a></li>
+                <li style="float:right">{% with total_items=cart|length %}
+                    {% if cart|length > 0 %}
+                    <a href="{% url "cart:cart_detail" %}">
+                    {{ total_items }} item{{ total_items|pluralize }},
+                    ${{ cart.get_total_price }}
+                    </a>
+
+                    {% else %}
+                    <li  style="float:right"><a>Your cart is empty</a></li>
+                    {% endif %}
+                    {% endwith %}
+                    </li>
                 <!--<li><a href="about_Us.html">Log in</a></li>-->
             </ul>
             <!-- Create rotating slideshow of pictures -->
 
-<div class="w3-content w3-display-container" style="max-width:100%; float:left">
-  <!--<img style="width: 100%; height:819px" class="mySlides" src="media/ZoeyAndMia.jpg">-->
-  <img style="width: 100%; height:819px" class="mySlides" src="https://a248.e.akamai.net/ib.huluim.com/show_key_art/2138?size=1600x600&region=US">
-  <img style="width: 100%; height:819px" class="mySlides" src="http://www.wtfgamersonly.com/wp-content/uploads/2015/02/assistir-naruto-shippuuden-dublado-todos-os-epis%C3%B3dios-online.jpg">
-  <img style="width: 100%; height:819px" class="mySlides" src="https://res.cloudinary.com/sfp/image/upload/c_fill,q_60/oth/FunimationStoreFront/1709053/English/1709053_English_ShowDetailHeaderDesktop_41f7431e-d906-e811-8175-020165574d09.jpg">
+<div class="poo">
+  <!--<img style="width: 2000px; height:1000px" class="mySlides" src="media/ZoeyAndMia.jpg">-->
+      <img style="width: 100%; height:100%" class="mySlides" src="https://d38trduahtodj3.cloudfront.net/images.ashx?t=ig&rid=BellCountyExpo&i=2.jpg">
+  <img style="width: 100%; height:100%" class="mySlides" src="https://www.whatsuplife.in/kolkata/blog/wp-content/uploads/2016/05/animal-shelter-kolkata-1.jpg">
+  <img style="width: 100%; height:100%" class="mySlides" src="http://www.9and10news.com/wp-content/uploads/2017/04/13589803_G.jpg">
 </div>
 
 <script>
@@ -72,7 +95,7 @@ function carousel() {
     slideIndex++;
     if (slideIndex > x.length) {slideIndex = 1}
     x[slideIndex-1].style.display = "block";
-    setTimeout(carousel, 2000); // Change image every 2 seconds
+    setTimeout(carousel, 4000); // Change image every 4 seconds
 }
 </script>
 
