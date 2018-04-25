@@ -8,6 +8,12 @@
         <title>petEcommerce</title>
         <style>
 
+.navContain{
+    position:fixed;
+    z-index:1;
+    width:100%;
+
+}
 .poo{
         position:absolute;
         height:100%;
@@ -52,8 +58,9 @@ mySlides {display:none}
         </style>
 
     </head>
-    <body style="margin:0; overflow-y: hidden">
+    <body style="margin:0">
             <!--create top navigation bar-->
+            <div class="navContain">
             <ul>
                 <li style="float:left"><a href="home.html">Pets R Us</a> </li>
                 <li style="float:right"><a href="about_Us.html">About us</a> </li>
@@ -73,9 +80,10 @@ mySlides {display:none}
                     </li>
                 <!--<li><a href="about_Us.html">Log in</a></li>-->
             </ul>
+            </div>
             <!-- Create rotating slideshow of pictures -->
 
-<div class="poo">
+<div class="poo" >
   <!--<img style="width: 2000px; height:1000px" class="mySlides" src="media/ZoeyAndMia.jpg">-->
       <img style="width: 100%; height:100%" class="mySlides" src="https://d38trduahtodj3.cloudfront.net/images.ashx?t=ig&rid=BellCountyExpo&i=2.jpg">
   <img style="width: 100%; height:100%" class="mySlides" src="https://www.whatsuplife.in/kolkata/blog/wp-content/uploads/2016/05/animal-shelter-kolkata-1.jpg">
