@@ -56,6 +56,19 @@
         width:300px;
         margin-bottom:5px;
 }
+
+.header{
+    display: inline;
+}
+
+.search{
+    display: inline;
+    float: right;
+    margin-right: 13%;
+    width: 40%;
+    margin-top: 1%;
+
+}
 </style>
 
   <!-- SIDE BAR CODE -->
@@ -76,7 +89,8 @@
 
   <!-- Photo Grid Code-->
   <div class="gridContainer">
-    <h1>{% if category %}{{ category.name }}{% else %}FIND YOUR BEST FRIEND TODAY!{% endif %}</h1>
+    <h1 class="header">{% if category %}{{ category.name }}{% else %}FIND YOUR BEST FRIEND TODAY!{% endif %}</h1>
+     <input class="search" type="text" placeholder="Search..">
 
     <div class="row">
       <div class="column">
