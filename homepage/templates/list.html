@@ -90,7 +90,11 @@
   <!-- Photo Grid Code-->
   <div class="gridContainer">
     <h1 class="header", style="font-family:helvetica, sans-serif;">{% if category %}{{ category.name }}{% else %}FIND YOUR BEST FRIEND TODAY!{% endif %}</h1>
-     <input class="search" type="text" placeholder="Search..">
+     <form  action="render_Page.htmlcat">
+        {% csrf_token %}
+       <input type='text' >
+      <input type='submit'>
+</form>
 
     <div class="row">
       <div class="column">
